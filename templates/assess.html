@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skill Assessment</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🧠 AI Skill Assessment</h1>
+
+    <!-- Chat Box -->
+    <div id="chatBox" class="card" style="height: 400px; overflow-y: auto;"></div>
+
+    <!-- Input Area -->
+    <div style="display: flex; flex-direction: column; margin-top: 10px;">
+        
+        <div style="display: flex;">
+            <input 
+                id="userInput" 
+                type="text" 
+                placeholder="Try to write ~100 characters for better evaluation..." 
+                style="flex:1; padding:10px;"
+                oninput="updateCounter()"
+            >
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+        <!-- Character Counter -->
+        <div id="charCounter" style="font-size: 12px; color: gray; margin-top: 5px;">
+            0 characters
+        </div>
+
+    </div>
+</div>
+
+<script>
+const chatBox = document.getElementById("chatBox");
+const input = document.getElementById("userInput");
+const counter = document.getElementById("charCounter");
+
+// ================= MESSAGE UI =================
+function addMessage(text, sender, id=null) {
+    const msg = document.createElement("div");
+    msg.style.margin = "10px 0";
+
+    if (id) msg.id = id;
+
+    if (sender === "user") {
+        msg.style.textAlign = "right";
+        msg.innerHTML = `<span style="background:#3b82f6; padding:8px; border-radius:8px;">${text}</span>`;
+    } else {
+        msg.style.textAlign = "left";
+        msg.innerHTML = `<span style="background:#334155; padding:8px; border-radius:8px;">${text}</span>`;
+    }
+
+    chatBox.appendChild(msg);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// ================= CHARACTER COUNTER =================
+function updateCounter() {
+    const length = input.value.length;
+    counter.innerText = `${length} characters`;
+
+    if (length < 50) {
+        counter.style.color = "red";
+    } else if (length < 100) {
+        counter.style.color = "orange";
+    } else {
+        counter.style.color = "green";
+    }
+}
+
+// ================= SEND MESSAGE =================
+async function sendMessage() {
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    addMessage(message, "user");
+    input.value = "";
+    updateCounter();
+
+    // Typing indicator
+    addMessage("AI is thinking...", "bot", "typing-msg");
+
+    const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message})
+    });
+
+    const data = await res.json();
+
+    // Remove typing indicator
+    const typingMsg = document.getElementById("typing-msg");
+    if (typingMsg) typingMsg.remove();
+
+    // If assessment complete → generate report → go to results
+    if (data.status === "assessment_complete") {
+        await fetch("/api/report", {
+            method: "POST"
+        });
+
+        window.location.href = "/results";
+        return;
+    }
+
+    addMessage(data.message, "bot");
+}
+
+// ================= INITIAL LOAD =================
+window.onload = async () => {
+    addMessage("AI is thinking...", "bot", "typing-msg");
+
+    const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: ""})
+    });
+
+    const data = await res.json();
+
+    const typingMsg = document.getElementById("typing-msg");
+    if (typingMsg) typingMsg.remove();
+
+    addMessage(data.message, "bot");
+};
+</script>
+
+</body>
+</html>
