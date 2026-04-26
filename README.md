@@ -62,3 +62,5 @@ JD + Resume → Skill Extraction → Chat Assessment → Scoring → Gap Analysi
 ```bash
 git clone https://github.com/anjum-kousar-aiml/AI-Powered-Skill-Assessment-Personalised-Learning-Plan-Agent.git
 cd AI-Powered-Skill-Assessment-Personalised-Learning-Plan-Agent
+
+### Demo Video Link: https://www.loom.com/share/b5cdf70d8dc54385931a515e6303f3f4
