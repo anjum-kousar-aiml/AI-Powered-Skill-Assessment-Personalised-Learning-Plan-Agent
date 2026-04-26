@@ -69,10 +69,21 @@ Experience in Python and basic machine learning models with data preprocessing.
 
 ## 🚀 Run Locally
 
-### 1. Clone the repository
-
 ```bash
 git clone https://github.com/anjum-kousar-aiml/AI-Powered-Skill-Assessment-Personalised-Learning-Plan-Agent.git
 cd AI-Powered-Skill-Assessment-Personalised-Learning-Plan-Agent
 
+# Create virtual environment
+python -m venv venv
+venv\Scripts\activate   # Windows
 
+# Install dependencies
+pip install -r requirements.txt
+
+# Create .env file (manually in project folder)
+# Add the following inside .env:
+# GROQ_API_KEY=your_api_key_here
+# SECRET_KEY=any_random_string
+
+# Run the application
+python app.py
