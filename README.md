@@ -2,6 +2,8 @@
 
 Catalyst is an AI system that evaluates a candidate’s real skills through a short conversational interview and generates a personalized learning roadmap based on identified gaps.
 
+### Demo Video Link: https://www.loom.com/share/b5cdf70d8dc54385931a515e6303f3f4
+
 ---
 
 ## 🎯 What it does
@@ -63,4 +65,4 @@ JD + Resume → Skill Extraction → Chat Assessment → Scoring → Gap Analysi
 git clone https://github.com/anjum-kousar-aiml/AI-Powered-Skill-Assessment-Personalised-Learning-Plan-Agent.git
 cd AI-Powered-Skill-Assessment-Personalised-Learning-Plan-Agent
 
-### Demo Video Link: https://www.loom.com/share/b5cdf70d8dc54385931a515e6303f3f4
+
