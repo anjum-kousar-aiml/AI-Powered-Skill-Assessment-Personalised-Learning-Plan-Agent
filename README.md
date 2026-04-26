@@ -34,18 +34,28 @@ JD + Resume → Skill Extraction → Chat Assessment → Scoring → Gap Analysi
 
 ---
 
-## 📊 Sample Output
+## 📊 Sample Input & Output
 
-**Score: 74%**
+**Job Description:**
+Looking for a Machine Learning Engineer with experience in Python, NLP, and model deployment.
+
+**Resume:**
+Experience in Python and basic machine learning models with data preprocessing.
+
+---
+
+**Output:**
+
+**Score:** 74%
 
 **Weak Skills:**
 - NLP  
 - Deployment  
 
-**Roadmap:**
+**Learning Roadmap:**
 - Week 1–2: Learn NLP basics  
-- Week 3–4: Build project  
-- Week 5: Learn deployment  
+- Week 3–4: Build a project  
+- Week 5: Learn deployment   
 
 ---
 
