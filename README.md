@@ -1,10 +1,10 @@
-# Catalyst — AI Skill Assessment & Learning Agent
+# 🚀 Catalyst — AI Skill Assessment & Learning Agent
 
 Catalyst is an AI system that evaluates a candidate’s real skills through a short conversational interview and generates a personalized learning roadmap based on identified gaps.
 
 ---
 
-## What it does
+## 🎯 What it does
 
 - Extracts skills from **Job Description + Resume**
 - Conducts a **chat-based assessment**
@@ -13,16 +13,17 @@ Catalyst is an AI system that evaluates a candidate’s real skills through a sh
   - Response quality  
 - Identifies weak areas  
 - Generates a **personalized roadmap**
+- Evaluates real skills instead of relying only on resumes
 
 ---
 
-## How it works
+## ⚙️ How it works
 
 JD + Resume → Skill Extraction → Chat Assessment → Scoring → Gap Analysis → Learning Plan
 
 ---
 
-## Key Features
+## 🧠 Key Features
 
 - Conversational assessment (not form-based)
 - Smart scoring (not random)
@@ -31,7 +32,7 @@ JD + Resume → Skill Extraction → Chat Assessment → Scoring → Gap Analysi
 
 ---
 
-## Sample Output
+## 📊 Sample Output
 
 **Score: 74%**
 
@@ -46,7 +47,7 @@ JD + Resume → Skill Extraction → Chat Assessment → Scoring → Gap Analysi
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - Python (Flask)  
 - HTML, CSS, JavaScript  
@@ -54,7 +55,10 @@ JD + Resume → Skill Extraction → Chat Assessment → Scoring → Gap Analysi
 
 ---
 
-## Run Locally
+## 🚀 Run Locally
+
+### 1. Clone the repository
 
 ```bash
-python app.py
+git clone https://github.com/anjum-kousar-aiml/AI-Powered-Skill-Assessment-Personalised-Learning-Plan-Agent.git
+cd AI-Powered-Skill-Assessment-Personalised-Learning-Plan-Agent
